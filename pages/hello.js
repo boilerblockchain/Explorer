@@ -1,5 +1,6 @@
 import HeaderComponent from "../components/common/headers/header";
 
+
 function HelloPage() {
     return(        
         <div>            
@@ -8,7 +9,8 @@ function HelloPage() {
         <div>                
         	Hello there, How are you?            
         </div>                
-        <br />            
+        <br />   
+             
        </div>    
     )
 }

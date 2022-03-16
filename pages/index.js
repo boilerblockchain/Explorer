@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import isBlock from "./api/blockInfo";
+import Table from "../components/common/Table";
 
 export default function Home() {
   if (isBlock) {
@@ -36,6 +37,7 @@ export default function Home() {
           Fetch data
         </button>
         <div>{blockInfo != null ? blockInfo.block : <></>}</div>
+        <Table /> 
       </div>
     );
   }
