@@ -18,7 +18,7 @@ export default function Login() {
                     </Typography>
                     <box component="form" noValidate>
                         <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus/>
-                        <TextField margin="normal" required fullWidth id="password" label="Password" name="password" autoComplete="password" autoFocus/>
+                        <TextField margin="normal" required fullWidth id="password" label="Password" name="password" type="password" autoComplete="password" autoFocus/>
                         <Link href="" >
                             <Button lg fullWidth sx={{mt:2}}variant="contained" color="primary">Sign In</Button>
                         </Link>
