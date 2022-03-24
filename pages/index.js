@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import isBlock from "./api/blockInfo";
 import Table from "../components/common/Table";
+import Grid from '@mui/material/Grid';
 
 export default function Home() {
   if (isBlock) {
@@ -28,16 +29,25 @@ export default function Home() {
 
     return (
       <div className={styles.container}>
-        <div>Enter Block number or Transaction number</div>
-        <input value={blockNo} onChange={(e) => setBlockNo(e.target.value)} />
-        <button
-          style={{ height: 20, width: 100 }}
-          onClick={(e) => fetchBlockInfo(blockNo)}
-        >
-          Fetch data
-        </button>
-        <div>{blockInfo != null ? blockInfo.block : <></>}</div>
-        <Table /> 
+        <Grid container direction="column" justifyContent="center" alignItems="center">
+          <Grid item>
+            <h1>Blockchain Explorer</h1>
+          </Grid>
+          <Grid item>
+            <div>Enter Block number or Transaction number</div>
+            <input value={blockNo} onChange={(e) => setBlockNo(e.target.value)} />
+            <button
+              style={{ height: 20, width: 100 }}
+              onClick={(e) => fetchBlockInfo(blockNo)}
+            >
+              Fetch data
+            </button>
+            <div>{blockInfo != null ? blockInfo.block : <></>}</div>
+          </Grid>
+          
+        </Grid>
+        
+        {/* <Table />  */}
       </div>
     );
   }
