@@ -20,7 +20,7 @@ export default function Login() {
                         <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus/>
                         <TextField margin="normal" required fullWidth id="password" label="Password" name="password" type="password" autoComplete="password" autoFocus/>
                         <Link href="" >
-                            <Button lg fullWidth sx={{mt:2}}variant="contained" color="primary">Sign In</Button>
+                            <Button lg fullWidth sx={{mt:2}} variant="contained" color="primary">Sign In</Button>
                         </Link>
                         <Grid container sx={{mt:3}}>
                             <Grid item xs>

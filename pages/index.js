@@ -45,7 +45,7 @@ export default function Home() {
 							Fetch data
 						</button>
 					</Grid>
-					<Grid item>
+					<Grid item sx={{mt:2}}>
 						<div>Enter Transaction Hash</div>
 						<input value={transactionHash} onChange={(e) => setTransactionHash(e.target.value)} />
 						<button
