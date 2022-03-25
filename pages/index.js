@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import isBlock from "./api/blockInfo";
-import Table from "../components/common/Table";
 import Grid from '@mui/material/Grid';
+import Block from "../components/Block";
 
 export default function Home() {
 	if (isBlock) {
@@ -16,7 +16,6 @@ export default function Home() {
 			fetch("/api/blockInfo", { method: 'POST', body: JSON.stringify({ blockNo: blockNo }) })
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
 					setBlockInfo(data);
 				});
 		};
@@ -25,7 +24,7 @@ export default function Home() {
 			fetch("/api/transactionInfo", { method: "POST", body: JSON.stringify({ transactionHash: transactionHash }) })
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
+					// console.log(data);
 					setTransactionInfo(data);
 				})
 		};
@@ -45,7 +44,6 @@ export default function Home() {
 						>
 							Fetch data
 						</button>
-						<div>{blockInfo != null ? blockInfo : <></>}</div>
 					</Grid>
 					<Grid item>
 						<div>Enter Transaction Hash</div>
@@ -56,43 +54,11 @@ export default function Home() {
 						>
 							Fetch data
 						</button>
-						<div>{blockInfo != null ? transactionInfo : <></>}</div>
 					</Grid>
 				</Grid>
-
+				
+				<Block blockInfo={blockInfo} />
 			</div>
 		);
 	}
-	// else {
-	//   var [transactionHash, setTransactionHash] = useState(0);
-	//   var [transactionInfo, setTransactionInfo] = useState(null);
-
-	//   var fetchTransactionInfo = (transactionHash) => {
-	//     fetch("/api/transactionInfo")
-	//       .then((res) => res.json())
-	//       .then((data) => {
-	//         setTransactionInfo(data);
-	//         console.log(data);
-	//       });
-	//   };
-
-	//   return (
-	//     <div className={styles.container}>
-	//       <div>Enter Block number or Transaction number</div>
-	//       <input
-	//         value={transactionHash}
-	//         onChange={(event) => setTransactionInfo(event.target.value)}
-	//       />
-	//       <button
-	//         style={{ height: 20, width: 100 }}
-	//         onClick={(e) => fetchTransactionInfo(transactionHash)}
-	//       >
-	//         Fetch data
-	//       </button>
-	//       <div>
-	//         {transactionInfo != null ? transactionHash.transaction : <></>}
-	//       </div>
-	//     </div>
-	//   );
-	// }
 }
