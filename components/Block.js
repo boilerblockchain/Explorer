@@ -3,8 +3,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { Container, Typography } from '@mui/material'
-
+import { Container, Typography } from '@mui/material';
 
 export default function Block(props) {
 	/**
@@ -26,45 +25,59 @@ export default function Block(props) {
 					<TableBody>
 						<TableRow>
 							<TableCell>Block Height</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.number}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Timestamp</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.timestamp}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Transactions</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Mined by:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.miner}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Block Reward</TableCell>
+							<TableCell>--</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Uncles Reward</TableCell>
+							<TableCell>--</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Difficulty</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo._difficulty.hex}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Total Difficulty</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.difficulty}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Size:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Gas Used</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.gasUsed.hex}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Gas Limit</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.gasLimit.hex}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Base fee Per Gas</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.baseFeePerGas.hex}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Burnt Fees</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>Extra Data</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.extraData}</TableCell>
 						</TableRow>
 					</TableBody>
 				</Table>
