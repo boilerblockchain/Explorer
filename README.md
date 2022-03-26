@@ -14,11 +14,22 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## MongoDB
+
+Look at .env.local file for the details:
+mongodb+srv://eashan-d:mongobongo@exp-cluster.ymtef.mongodb.net/sample_mflix?retryWrites=true&w=majority
+MONGODB_URI = "mongodb+srv://eashan-d:mongobongo@exp-cluster.ymtef.mongodb.net/sample_mflix?retryWrites=true&w=majority"
+DB_NAME=sample_mflix
+
+Super Admin Login for DB:
+Username: eashan-d
+Password: mongobongo
+
+Testing & Monitering done using MongoDB Atlas (https://www.mongodb.com/atlas/database) & MongoDB Compass Application (https://www.mongodb.com/products/compass)
 
 ## Learn More
 
