@@ -24,7 +24,7 @@ export default function Home() {
 			fetch("/api/transactionInfo", { method: "POST", body: JSON.stringify({ transactionHash: transactionHash }) })
 				.then((res) => res.json())
 				.then((data) => {
-					// console.log(data);
+					console.log(data);
 					setTransactionInfo(data);
 				})
 		};
