@@ -60,5 +60,6 @@ export default function Home() {
 				<Block blockInfo={blockInfo} />
 			</div>
 		);
+		
 	}
 }
