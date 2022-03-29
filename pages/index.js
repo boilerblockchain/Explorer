@@ -1,64 +1,47 @@
+// LANDING PAGE: localhost:3000/
+
+// import statements
 import { useState } from "react";
-import styles from "../styles/Home.module.css";
-import isBlock from "./api/blockInfo";
-import Grid from '@mui/material/Grid';
-import Block from "../components/Block";
 
+// home page function
 export default function Home() {
-	if (isBlock) {
-		var [blockNo, setBlockNo] = useState(0);
-		var [blockInfo, setBlockInfo] = useState(null);
+  // getting the user Input using HTML form
+  const [userInput, setUserInput] = useState(0);
+  const [info, setInfo] = useState(null);
 
-		var [transactionHash, setTransactionHash] = useState(0);
-		var [transactionInfo, setTransactionInfo] = useState(null);
+  // sending http request to backend (to receive info from userInput on search bar)
+  const fetchData = () => {
+    fetch("api/dataExtraction", {
+      method: "POST",
+      body: JSON.stringify({ userInput: userInput }),
+    })
+      .then((res) => res.json())
+      .then((fetchedInfo) => {
+        console.log(fetchedInfo);
+        setInfo(fetchedInfo);
+      });
+  };
 
-		var fetchBlockInfo = () => {
-			fetch("/api/blockInfo", { method: 'POST', body: JSON.stringify({ blockNo: blockNo }) })
-				.then((res) => res.json())
-				.then((data) => {
-					setBlockInfo(data);
-				});
-		};
+  // onClick handler
+  const handleClick = (event) => {
+    event.preventDefault();
+    fetchData();
+  };
 
-		var fetchTransactionInfo = () => {
-			fetch("/api/transactionInfo", { method: "POST", body: JSON.stringify({ transactionHash: transactionHash }) })
-				.then((res) => res.json())
-				.then((data) => {
-					// console.log(data);
-					setTransactionInfo(data);
-				})
-		};
-
-		return (
-			<div className={styles.container}>
-				<Grid container direction="column" justifyContent="center" alignItems="center">
-					<Grid item>
-						<h1>Blockchain Explorer</h1>
-					</Grid>
-					<Grid item>
-						<div>Enter Block number</div>
-						<input value={blockNo} onChange={(e) => setBlockNo(e.target.value)} />
-						<button
-							style={{ height: 20, width: 100 }}
-							onClick={(e) => fetchBlockInfo()}
-						>
-							Fetch data
-						</button>
-					</Grid>
-					<Grid item>
-						<div>Enter Transaction Hash</div>
-						<input value={transactionHash} onChange={(e) => setTransactionHash(e.target.value)} />
-						<button
-							style={{ height: 20, width: 100 }}
-							onClick={(e) => fetchTransactionInfo()}
-						>
-							Fetch data
-						</button>
-					</Grid>
-				</Grid>
-				
-				<Block blockInfo={blockInfo} />
-			</div>
-		);
-	}
+  return (
+    // Search Bar
+    <div className="Search bar">
+      <input
+        value={userInput}
+        type="text"
+        placeholder="Search by Address, Txn Hash, Block"
+        onChange={(event) => {
+          setUserInput(event.target.value);
+        }}
+      />
+      <button style={{ height: 20, width: 100 }} onClick={handleClick}>
+        Search
+      </button>
+    </div>
+  );
 }
