@@ -3,8 +3,14 @@ import styles from "../styles/Home.module.css";
 import isBlock from "./api/blockInfo";
 import Grid from '@mui/material/Grid';
 import Block from "../components/Block";
+import Link from 'next/Link';
+import Button from '@mui/material/Button';
+import { useMoralis } from "react-moralis";
+
+
 
 export default function Home() {
+	
 	if (isBlock) {
 		var [blockNo, setBlockNo] = useState(0);
 		var [blockInfo, setBlockInfo] = useState(null);
@@ -54,6 +60,11 @@ export default function Home() {
 						>
 							Fetch data
 						</button>
+					</Grid>
+					<Grid item>
+						<Link href="./login">
+							<Button variant="contained" color="primary" style={{marginTop: '15px'}}>Login or Register</Button>
+						</Link>
 					</Grid>
 				</Grid>
 				
