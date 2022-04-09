@@ -1,17 +1,18 @@
 // LANDING PAGE: localhost:3000/
-
-// import statements
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import Link from "next/Link";
+import Grid from "@mui/material/Grid";
 
 // home page function
 export default function Home() {
-  // getting the user Input using HTML form
+  // getting the user input in search bar
   const [userInput, setUserInput] = useState(0);
   const [info, setInfo] = useState(null);
 
   // sending http request to backend (to receive info from userInput on search bar)
   const fetchData = () => {
-    fetch("api/dataExtraction", {
+    fetch("api/explorerData", {
       method: "POST",
       body: JSON.stringify({ userInput: userInput }),
     })
@@ -22,7 +23,7 @@ export default function Home() {
       });
   };
 
-  // onClick handler
+  // Search bar onClick handler
   const handleClick = (event) => {
     event.preventDefault();
     fetchData();
@@ -42,6 +43,17 @@ export default function Home() {
       <button style={{ height: 20, width: 100 }} onClick={handleClick}>
         Search
       </button>
+      <Grid item>
+        <Link href="./login">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginTop: "15px" }}
+          >
+            Login/Register
+          </Button>
+        </Link>
+      </Grid>
     </div>
   );
 }
