@@ -1,25 +1,35 @@
+// LANDING PAGE: localhost:3000/
 import { useState } from "react";
-import styles from "../styles/Home.module.css";
-import isBlock from "./api/blockInfo";
-import Grid from '@mui/material/Grid';
-import Block from "../components/Block";
+import Button from "@mui/material/Button";
+import Link from "next/Link";
+import Grid from "@mui/material/Grid";
 
+// home page function
 export default function Home() {
-	if (isBlock) {
-		var [blockNo, setBlockNo] = useState(0);
-		var [blockInfo, setBlockInfo] = useState(null);
+  // getting the user input in search bar
+  const [userInput, setUserInput] = useState(0);
+  const [info, setInfo] = useState(null);
 
-		var [transactionHash, setTransactionHash] = useState(0);
-		var [transactionInfo, setTransactionInfo] = useState(null);
+  // sending http request to backend (to receive info from userInput on search bar)
+  const fetchData = () => {
+    fetch("api/explorerData", {
+      method: "POST",
+      body: JSON.stringify({ userInput: userInput }),
+    })
+      .then((res) => res.json())
+      .then((fetchedInfo) => {
+        console.log(fetchedInfo);
+        setInfo(fetchedInfo);
+      });
+  };
 
-		var fetchBlockInfo = () => {
-			fetch("/api/blockInfo", { method: 'POST', body: JSON.stringify({ blockNo: blockNo }) })
-				.then((res) => res.json())
-				.then((data) => {
-					setBlockInfo(data);
-				});
-		};
+  // Search bar onClick handler
+  const handleClick = (event) => {
+    event.preventDefault();
+    fetchData();
+  };
 
+<<<<<<< HEAD
 		var fetchTransactionInfo = () => {
 			fetch("/api/transactionInfo", { method: "POST", body: JSON.stringify({ transactionHash: transactionHash }) })
 				.then((res) => res.json())
@@ -62,4 +72,33 @@ export default function Home() {
 		);
 	}
 
+=======
+  return (
+    // Search Bar
+    <div className="Search bar">
+      <input
+        value={userInput}
+        type="text"
+        placeholder="Search by Address, Txn Hash, Block"
+        onChange={(event) => {
+          setUserInput(event.target.value);
+        }}
+      />
+      <button style={{ height: 20, width: 100 }} onClick={handleClick}>
+        Search
+      </button>
+      <Grid item>
+        <Link href="./login">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginTop: "15px" }}
+          >
+            Login/Register
+          </Button>
+        </Link>
+      </Grid>
+    </div>
+  );
+>>>>>>> ca0e56b18c2152d1c68f94ea44953e26134a03fc
 }

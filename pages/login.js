@@ -1,11 +1,8 @@
-import { Container } from '@mui/material';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
+import Login from "../components/Login";
+import { useMoralis } from "react-moralis";
+import SignedIn from "../components/SignedIn";
 
+<<<<<<< HEAD
 export default function Login() {
 
     return (
@@ -35,3 +32,13 @@ export default function Login() {
         </div>
     );
 }
+=======
+export default function login() {
+  const { isAuthenticated } = useMoralis();
+  return (
+    <div>
+      <Login />
+    </div>
+  );
+}
+>>>>>>> ca0e56b18c2152d1c68f94ea44953e26134a03fc
