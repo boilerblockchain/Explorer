@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 
-
 export default function Login() {
 
     return (
@@ -19,12 +18,12 @@ export default function Login() {
                     <box component="form" noValidate>
                         <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus/>
                         <TextField margin="normal" required fullWidth id="password" label="Password" name="password" type="password" autoComplete="password" autoFocus/>
-                        <Link href="" >
-                            <Button lg fullWidth sx={{mt:2}} variant="contained" color="primary">Sign In</Button>
+                        <Link href="">
+                            <Button size="large"  sx={{mt:2}} variant="contained" color="primary">Sign In</Button>
                         </Link>
                         <Grid container sx={{mt:3}}>
                             <Grid item xs>
-                                <Link href="pages/transaction">Register</Link>
+                                <Link href="./createProfile">Register</Link>
                             </Grid>
                             <Grid item>
                                 <Link href="pages/transaction" >Forgot the Password?</Link>

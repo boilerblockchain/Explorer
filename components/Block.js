@@ -17,11 +17,11 @@ export default function Block(props) {
 	console.log(props.blockInfo)
 	return (
 		<React.Fragment>
-			<Container component="main" maxWidth="md" sx={{ mt: 10 }}>
-				<Typography component="h5" variant="h5">
+			<Container component="main" maxWidth="lg" sx={{ mt: 10 }}>
+				<Typography component="h5" variant="h5" sx={{ mb: 2 }}>
 					Block Details
 				</Typography>
-				<Table size="small" id="transactiontable">
+				<Table size="large" id="transactiontable">
 					<TableBody>
 						<TableRow>
 							<TableCell>Block Height</TableCell>

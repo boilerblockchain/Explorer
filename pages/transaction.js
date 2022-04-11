@@ -1,130 +1,91 @@
 import * as React from 'react';
-import Link from '@mui/material/Link';
-import Table from '@mui/material';
+import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import {Grid, Container, Typography} from '@mui/material'
-// import Title from './Title';
+import { Container, Typography } from '@mui/material';
 
-// Generate Order Data
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//   return { id, date, name, shipTo, paymentMethod, amount };
-// }
-
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//     return { id, date, name, shipTo, paymentMethod, amount };
-//   }
-
-// const rows = [
-//   createData(
-//     0,
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     // 'Tupelo, MS',
-//     // 'VISA ⠀•••• 3719',
-//     // 312.44,
-//   ),
-//   createData(
-//     1,
-//     '16 Mar, 2019',
-//     'Paul McCartney',
-//     // 'London, UK',
-//     // 'VISA ⠀•••• 2574',
-//     // 866.99,
-//   ),
-//   createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-//   createData(
-//     3,
-//     '16 Mar, 2019',
-//     'Michael Jackson',
-//     // 'Gary, IN',
-//     // 'AMEX ⠀•••• 2000',
-//     // 654.39,
-//   ),
-//   createData(
-//     4,
-//     '15 Mar, 2019',
-//     'Bruce Springsteen',
-//     // 'Long Branch, NJ',
-//     // 'VISA ⠀•••• 5919',
-//     // 212.79,
-//   ),
-// ];
-
-// function preventDefault(event) {
-//   event.preventDefault();
-// }
-
-export default function Orders() {
-  return (
-    <React.Fragment>
-       
-      <Container component="main" maxWidth="md" sx={{mt:10}}>
-        <Typography component="h5" variant="h5">
-          Transaction Details
-        </Typography>
-            {/* <Title>Recent Orders</Title> */}
-            <Table size="small" id="transactiontable">
-                {/* <TableHead>
-                <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Name</TableCell>
-                </TableRow>
-                </TableHead> */}
-                <TableBody>
-                {/* {rows.map((row) => ( */}
-                    <TableRow>
-                        <TableCell>Block Height</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Timestamp</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Transactions</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Mined by:</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Block Reward</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Uncles Reward</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Difficulty</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Total Difficulty</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Size:</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Gas Used</TableCell>
-                    </TableRow>     
-                    <TableRow>
-                      <TableCell>Gas Limit</TableCell>
-                    </TableRow> 
-                    <TableRow>
-                      <TableCell>Base fee Per Gas</TableCell>
-                    </TableRow> 
-                    <TableRow>
-                      <TableCell>Burnt Fees</TableCell>
-                    </TableRow> 
-                    <TableRow>
-                      <TableCell>Extra Data</TableCell>
-                    </TableRow> 
-                {/* ))} */}
-                </TableBody>
-            </Table>
-            {/* <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-                See more orders
-            </Link> */}
-      </Container>
-   </React.Fragment>
-   
-  );
+export default function Block(props) {
+	/**
+	 * So props.blockInfo contains all the info about the block
+	 * Just go through the rows and add a cell with the info
+	 * For example, timestamp would be props.blockInfo.timestamp
+	 * You can check all the info that is returned in the console
+	 * in Chrome. I already log the info into the console in the line
+	 * below.
+	 */
+	console.log(props.blockInfo)
+	return (
+		<React.Fragment>
+			<Container component="main" maxWidth="lg" sx={{ mt: 10 }}>
+				<Typography component="h5" variant="h5" sx={{ mb: 2 }}>
+					Transaction Details
+				</Typography>
+				<Table size="large" id="transactiontable">
+					<TableBody>
+						<TableRow>
+							<TableCell>Transaction Hash:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.number}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Status:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.timestamp}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Block:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Timestamp:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.miner}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>From:</TableCell>
+							<TableCell>--</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Interacted With (To):</TableCell>
+							<TableCell>--</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Tokens Transferred:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo._difficulty.hex}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Value:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.difficulty}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Transaction Fee:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Gas Price:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.gasUsed.hex}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Gas Limit & Usage by Txn:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.gasLimit.hex}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Gas Fees:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.baseFeePerGas.hex}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Burnt & Txn Savings Fees:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>Others:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.extraData}</TableCell>
+						</TableRow>
+                        <TableRow>
+							<TableCell>Input Data:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.extraData}</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+			</Container>
+		</React.Fragment>
+	);
 }
