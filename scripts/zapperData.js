@@ -29,6 +29,14 @@ const fetchCurveBalance = async() => {
     console.log(response.data);
 }
 
+const fetchYearnVaults = async() => {
+  const params = {
+    api_key: '96e0cc51-a62e-42ca-acee-910ea7d2a241'
+  };
+  const response = await axios.get('http://api.zapper.fi/v1/protocols/curve/balances', { params });
+  console.log(response.data);
+}
+
 
 
 
