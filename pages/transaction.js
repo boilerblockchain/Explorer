@@ -19,64 +19,68 @@ export default function Block(props) {
 		<React.Fragment>
 			<Container component="main" maxWidth="lg" sx={{ mt: 10 }}>
 				<Typography component="h5" variant="h5" sx={{ mb: 2 }}>
-					Block Details
+					Transaction Details
 				</Typography>
 				<Table size="large" id="transactiontable">
 					<TableBody>
 						<TableRow>
-							<TableCell>Block Height</TableCell>
+							<TableCell>Transaction Hash:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.number}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Timestamp</TableCell>
+							<TableCell>Status:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.timestamp}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Transactions</TableCell>
+							<TableCell>Block:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Mined by:</TableCell>
+							<TableCell>Timestamp:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.miner}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Block Reward</TableCell>
+							<TableCell>From:</TableCell>
 							<TableCell>--</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Uncles Reward</TableCell>
+							<TableCell>Interacted With (To):</TableCell>
 							<TableCell>--</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Difficulty</TableCell>
+							<TableCell>Tokens Transferred:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo._difficulty.hex}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Total Difficulty</TableCell>
+							<TableCell>Value:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.difficulty}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Size:</TableCell>
+							<TableCell>Transaction Fee:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Gas Used</TableCell>
+							<TableCell>Gas Price:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.gasUsed.hex}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Gas Limit</TableCell>
+							<TableCell>Gas Limit & Usage by Txn:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.gasLimit.hex}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Base fee Per Gas</TableCell>
+							<TableCell>Gas Fees:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.baseFeePerGas.hex}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Burnt Fees</TableCell>
+							<TableCell>Burnt & Txn Savings Fees:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.transactions}</TableCell>
 						</TableRow>
 						<TableRow>
-							<TableCell>Extra Data</TableCell>
+							<TableCell>Others:</TableCell>
+							<TableCell>{props.blockInfo && props.blockInfo.extraData}</TableCell>
+						</TableRow>
+                        <TableRow>
+							<TableCell>Input Data:</TableCell>
 							<TableCell>{props.blockInfo && props.blockInfo.extraData}</TableCell>
 						</TableRow>
 					</TableBody>

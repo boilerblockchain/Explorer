@@ -32,6 +32,50 @@ export default function Home() {
     // fetchTokenBalances();
   };
 
+<<<<<<< HEAD
+		var fetchTransactionInfo = () => {
+			fetch("/api/transactionInfo", { method: "POST", body: JSON.stringify({ transactionHash: transactionHash }) })
+				.then((res) => res.json())
+				.then((data) => {
+					// console.log(data);
+					setTransactionInfo(data);
+				})
+		};
+
+		return (
+			<div className={styles.container}>
+				<Grid container direction="column" justifyContent="center" alignItems="center">
+					<Grid item>
+						<h1>Blockchain Explorer</h1>
+					</Grid>
+					<Grid item>
+						<div>Enter Block number</div>
+						<input value={blockNo} onChange={(e) => setBlockNo(e.target.value)} />
+						<button
+							style={{ height: 20, width: 100 }}
+							onClick={(e) => fetchBlockInfo()}
+						>
+							Fetch data
+						</button>
+					</Grid>
+					<Grid item sx={{mt:2}}>
+						<div>Enter Transaction Hash</div>
+						<input value={transactionHash} onChange={(e) => setTransactionHash(e.target.value)} />
+						<button
+							style={{ height: 20, width: 100 }}
+							onClick={(e) => fetchTransactionInfo()}
+						>
+							Fetch data
+						</button>
+					</Grid>
+				</Grid>
+				
+				<Block blockInfo={blockInfo} />
+			</div>
+		);
+	}
+
+=======
   return (
     // Search Bar
     <div className="Search bar">
@@ -59,4 +103,5 @@ export default function Home() {
       </Grid> */}
     </div>
   );
+>>>>>>> ca0e56b18c2152d1c68f94ea44953e26134a03fc
 }
