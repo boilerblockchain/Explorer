@@ -20,7 +20,7 @@ var internaltx = [];
 
 async function getWalletInfo() {
   // wallet used for testing
-  var walletAddress = "0x765619981fe09F19552aDeb4C8093AF47736902C";
+  var walletAddress = "0x27F28A88EC19B150676802B68cDA43aC707B91CE";
 
   // getting normal transaction history for this wallet
   let txlist = await etherscanProvider.getHistory(walletAddress);

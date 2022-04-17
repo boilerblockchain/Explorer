@@ -3,12 +3,14 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import Link from "next/Link";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 
 // home page function
 export default function Home() {
   // getting the user input in search bar
   const [userInput, setUserInput] = useState(0);
   const [info, setInfo] = useState(null);
+  const [fetchedTokenbalances, setTokenBalances] = useState(null);
 
   // sending http request to backend (to receive info from userInput on search bar)
   const fetchData = () => {
@@ -27,6 +29,7 @@ export default function Home() {
   const handleClick = (event) => {
     event.preventDefault();
     fetchData();
+    // fetchTokenBalances();
   };
 
 <<<<<<< HEAD
@@ -87,7 +90,7 @@ export default function Home() {
       <button style={{ height: 20, width: 100 }} onClick={handleClick}>
         Search
       </button>
-      <Grid item>
+      {/* <Grid item>
         <Link href="./login">
           <Button
             variant="contained"
@@ -97,7 +100,7 @@ export default function Home() {
             Login/Register
           </Button>
         </Link>
-      </Grid>
+      </Grid> */}
     </div>
   );
 >>>>>>> ca0e56b18c2152d1c68f94ea44953e26134a03fc
