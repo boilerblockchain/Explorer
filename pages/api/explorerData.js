@@ -1,4 +1,4 @@
-// DATA EXTRACTION FOR SEARCH BAR: localhost:3000/api/dataExtraction
+// DATA EXTRACTION FOR SEARCH BAR
 
 // import statements
 import { ethers } from "ethers";
